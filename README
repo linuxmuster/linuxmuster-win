@@ -1,0 +1,28 @@
+linuxmuster-win
+===============
+
+Management-Skripte für den Windows 7 Client
+-------------------------------------------
+
+Installation:
+* Skripte in Ordner linuxmuster-win ins Wurzelverzeichnis des Betriebssystems
+  kopieren (Bsp.: C:\linuxmuster-win).
+* Skript install.cmd starten.
+
+Es werden "geplante Aufgaben" für Start und Herunterfahren angelegt:
+* Beim Start wird das Skript "start-tasks.cmd" ausgeführt,
+* beim Herunterfahren "shutdown-tasks.cmd".
+
+Skripte:
+* start-tasks.cmd:
+  - Führt das Skript C:\linuxmuster-win\winact.cmd (slmgr --ipk <Produktkey>)
+    zur Reaktivierung aus, falls es von LINBO angelegt wurde, und löscht es nach
+    Ausführung wieder.
+* shutdown-tasks.cmd:
+  - Speichert den Aktivierungsstatus nach C:\linuxmuster-win\activation_status,
+    die beim nächsten Reboot von LINBO ausgewertet wird.
+
+
+thomas@linuxmuster.net
+23. März 2014
+
