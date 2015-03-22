@@ -1,4 +1,4 @@
 linuxmuster-win
 ===============
 
-Managment Scripts for Windows 7 Client
+Management Scripts for Windows 7 Client

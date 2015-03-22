@@ -4,25 +4,35 @@ linuxmuster-win
 Management-Skripte für den Windows 7 Client
 -------------------------------------------
 
-Installation:
+Installation
+------------
 * Skripte in Ordner linuxmuster-win ins Wurzelverzeichnis des Betriebssystems
   kopieren (Bsp.: C:\linuxmuster-win).
+
 * Skript install.cmd starten.
 
-Es werden "geplante Aufgaben" für Start und Herunterfahren angelegt:
-* Beim Start wird das Skript "start-tasks.cmd" ausgeführt,
-* beim Herunterfahren "shutdown-tasks.cmd".
+Es wird eine "geplante Aufgabe" angelegt:
+* Beim Start des Betriebssystems wird das Skript "start-tasks.cmd" automatisch
+  ausgeführt.
 
-Skripte:
+Skripte
+-------
 * start-tasks.cmd:
-  - Führt das Skript C:\linuxmuster-win\winact.cmd (slmgr --ipk <Produktkey>)
-    zur Reaktivierung aus, falls es von LINBO angelegt wurde, und löscht es nach
-    Ausführung wieder.
-* shutdown-tasks.cmd:
-  - Speichert den Aktivierungsstatus nach C:\linuxmuster-win\activation_status,
-    die beim nächsten Reboot von LINBO ausgewertet wird.
+  Führt das Skript C:\linuxmuster-win\winact.cmd zur Reaktivierung aus, falls es
+  von LINBO angelegt wurde, und löscht es nach Ausführung wieder. Das Skript
+  enthält die Produktkeys und Aktivierungsbefehle für Windows und ggf. MSOffice.
 
+* save-activation-status.cmd:
+  Dieses Skript muss von Hand ausgeführt werden, nachdem man die Produkte
+  aktiviert hat. Es speichert den Aktivierungsstatus von Windows nach
+  C:\linuxmuster-win\win_activation_status und ggf. von MSOffice 2010/2013
+  nach C:\linuxmuster-win\office_activation_status. Findet LINBO beim nächsten
+  Reboot diese Dateien und sind die Produkte aktiviert, packt LINBO die
+  entsprechenden Aktivierungsdateien (tokens.dat) ein und lädt sie auf den
+  Server hoch.
+  Beim nächsten Sync stellt LINBO die Aktivierung aus den gesicherten Dateien
+  wieder her.
 
 thomas@linuxmuster.net
-23. März 2014
+22. März 2015
 
